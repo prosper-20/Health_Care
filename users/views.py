@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegistrationForm
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -20,5 +21,18 @@ def signup(request):
         "form": form
     }
     return render(request, 'users/signup.html', context)
+
+
+
+def signup_main(request):
+    if request.method == "POST":
+
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        
+
+        if User.objects.filter(username=username).exists():
+
 
 
