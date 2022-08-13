@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,7 +10,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="{% static 'users/css1/style.css' %}">
 
 	</head>
 	<body>
@@ -74,10 +75,10 @@
 		</div>
 	</section>
 
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="{% static 'users/js/jquery.min.js' %}"></script>
+  <script src="{% static 'users/js/popper.js' %}"></script>
+  <script src="{% static 'users/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'users/js/main.js' %}"></script>
 
 	</body>
 </html>
