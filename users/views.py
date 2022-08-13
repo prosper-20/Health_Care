@@ -35,14 +35,14 @@ def signup_main(request):
 
         if User.objects.filter(username=username).exists():
             messages.error(request, "Username '{username}' already exists")
-            return redirect("signup")
+            return redirect("register")
         
-        elif User.objects.filter(email=email).exists:
-            messages.error("Sorry, the email already belongs to another user.")
-            return redirect('signup')
+        elif User.objects.filter(email=email).exists():
+            messages.error(request, "Sorry, the email already belongs to another user.")
+            return redirect('register')
         
         elif password != password2:
-            messages.error("Both passwords must match!")
+            messages.error(request, "Both passwords must match!")
             return redirect("signup")
         else:
             user = User.objects.create(
