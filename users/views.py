@@ -38,11 +38,11 @@ def signup_main(request):
             return redirect("signup")
         
         elif User.objects.filter(email=email).exists:
-            messages.error("Sorry, the email alraedy belongs to another user.")
+            messages.error("Sorry, the email already belongs to another user.")
             return redirect('signup')
         
         elif password != password2:
-            messages.error("Both passwords must match")
+            messages.error("Both passwords must match!")
             return redirect("signup")
         else:
             user = User.objects.create(
@@ -53,6 +53,8 @@ def signup_main(request):
             user.save()
             messages.success(request, f"Hi, {username}, your account has been created successfully!")
             return redirect("signin")
+    else:
+        return render(request, "users/register.html")
 
 
 
