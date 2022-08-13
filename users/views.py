@@ -30,9 +30,29 @@ def signup_main(request):
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
+        password2 = request.POST.get("password2")
         
 
         if User.objects.filter(username=username).exists():
+            messages.error(request, "Username '{username}' already exists")
+            return redirect("signup")
+        
+        elif User.objects.filter(email=email).exists:
+            messages.error("Sorry, the email alraedy belongs to another user.")
+            return redirect('signup')
+        
+        elif password != password2:
+            messages.error("Both passwords must match")
+            return redirect("signup")
+        else:
+            user = User.objects.create(
+                username = username,
+                email = email,
+                password = password
+            )
+            user.save()
+            messages.success(request, f"Hi, {username}, your account has been created successfully!")
+            return redirect("signin")
 
 
 
