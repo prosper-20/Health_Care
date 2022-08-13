@@ -57,7 +57,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-image: url(https://images.everydayhealth.com/images/newsletter-signup/diet-and-nutrition-nl-signup.jpg?sfvrsn=3a241b07_2);
+  background-image: url("https://images.everydayhealth.com/images/newsletter-signup/diet-and-nutrition-nl-signup.jpg?sfvrsn=3a241b07_2");
   /* background-color: #fff; */
  }
 
