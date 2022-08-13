@@ -1,0 +1,1 @@
+you added a 1 extension to the static files for the users/register.html template
