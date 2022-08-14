@@ -31,28 +31,31 @@ def signup_main(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         password2 = request.POST.get("password2")
-        
 
-        if User.objects.filter(username=username).exists():
-            messages.error(request, "Username '{username}' already exists")
-            return redirect("register")
+        if password == password2:
+    
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Username '{username}' already exists")
+                return redirect("register")
+            
+            elif User.objects.filter(email=email).exists():
+                messages.error(request, "Sorry, the email already belongs to another user.")
+                return redirect('register')
         
-        elif User.objects.filter(email=email).exists():
-            messages.error(request, "Sorry, the email already belongs to another user.")
-            return redirect('register')
-        
-        elif password != password2:
-            messages.error(request, "Both passwords must match!")
-            return redirect("signup")
-        else:
-            user = User.objects.create(
-                username = username,
-                email = email,
-                password = password
-            )
-            user.save()
-            messages.success(request, f"Hi, {username}, your account has been created successfully!")
+            else:
+                user = User.objects.create(
+                    username = username,
+                    email = email,
+                    password = password
+                )
+                user.save()
+                messages.success(request, f"Hi, {username}, your account has been created successfully!")
             return redirect("signin")
+        
+        else:
+            messages.error(request, "Both passwords must match")
+            return redirect('register')
+            
     else:
         return render(request, "users/register.html")
 
