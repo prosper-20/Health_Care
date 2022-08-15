@@ -5,7 +5,7 @@ from .models import Consultation
 
 class ConsultationAdmin(admin.ModelAdmin):
     class Meta:
-        list_display = ["first_name", "last_name", "service", "date"]
+        list_display = ["first", "last", "service", "date"]
 
 
 
