@@ -39,3 +39,10 @@ class Consultation(models.Model):
     def __str__(self):
         return self.first_name
 
+
+class Subscription(models.Model):
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email
+
