@@ -55,6 +55,8 @@ def Home(request):
             subscriber.save()
             messages.success(request, 'You have successfully subscribed to our newsletter!')
             return redirect("home")
+    else:
+        return render(request, 'core/home.html')
 
 
 
@@ -102,14 +104,18 @@ def consultation(request):
 
 def subscription(request):
     if request.method == "POST":
-        email = request.POST.get(email)
-
-        subscriber = Subscription.objects.create(email=email)
-        subscriber.save()
-        messages.success(request, 'You have successfully subscribed to our newsletter!')
-        return redirect("home")
+        form = SubscriptionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Thanks for subscribing')
+            return redirect('home')
     else:
-        return render(request, 'core/home.html')
+        form = SubscriptionForm()
+    context = {
+        "form": form
+    }
+    
+    return render(request, 'core/subscription.html')
         
 
 
