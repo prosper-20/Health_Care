@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Consultation
+from .models import Consultation, Subscription
 
 # Register your models here.
 
@@ -9,3 +9,6 @@ class ConsultationAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Consultation, ConsultationAdmin)
+
+
+admin.site.register(Subscription)
