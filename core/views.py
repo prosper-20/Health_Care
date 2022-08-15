@@ -1,8 +1,8 @@
 import email
 from this import d
 from django.shortcuts import render, redirect
-from .forms import ConsultationForm, SubscriptionForm
-from .models import Consultation, Subscription
+from .forms import ConsultationForm, SubscriptionForm, BMIForm
+from .models import Consultation, Subscription, BMI
 from django.contrib import messages
 
 # Create your views here.
@@ -117,5 +117,36 @@ def subscription(request):
     
     return render(request, 'core/subscription.html', context)
         
+
+def BMIChecker(request):
+    if request.method == "POST":
+        form = BMIForm(request.POST)
+        if form.is_valid():
+            form.save()
+            weight = form.cleaned_data.get("weight")
+            height = form.cleaned_data.get("height")
+
+            BMI_Index = weight // (height ** 2)
+
+            if BMI_Index > 25:
+                messages.warning(request, f"Your BMI index is {BMI_Index}, you are overweight!")
+                return redirect("home")
+            elif BMI_Index < 25:
+                messages.success(request, f"Your BMI index is {BMI_Index}, you are healthy!")
+                return redirect("home")
+            else:
+                messages.error(request, "Invalid values entered..please try again")
+                return redirect("home")
+
+    else:
+        form = BMIForm()
+
+    context = {
+        "form": form
+    }
+    
+    return render(request, 'core/bmi_checker.html', context)
+
+
 
 
