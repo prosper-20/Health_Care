@@ -31,7 +31,10 @@ TIME_CHOICES = (
 class Consultation(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    services = models.CharField(choices=SERVICES_CHOICES, max_length=100)
-    date = models.
+    service = models.CharField(choices=SERVICES_CHOICES, max_length=100)
+    date = models.CharField(help_text="Choose a date", max_length=50)
     time = models.CharField(choices=TIME_CHOICES, max_length=50)
+
+    def __str__(self):
+        return self.first
 
