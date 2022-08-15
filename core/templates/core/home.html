@@ -199,7 +199,8 @@
 							<div class="text-center">
 								<h3 class="mb-4">Free Consultation</h3>
 							</div>
-							<form action="#" class="appointment-form">
+							<form action="#" method="post" class="appointment-form">
+								{% csrf_token %}
 								<div class="row">
 									<div class="col-md-12 col-lg-6 col-xl-4">
 										<div class="form-group">
@@ -222,6 +223,7 @@
 		                        <option value="Therapy Session">Therapy Session</option>
 		                        <option value="Massage">Massage</option>
 								<option value="Spa">Spa</option>
+								<option value="Healthy Food">Healthy Food</option>
 
 		                      </select>
 		                    </div>
