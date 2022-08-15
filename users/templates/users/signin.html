@@ -16,6 +16,13 @@
 	<body class="img js-fullheight" style="background-image: url(https://images.everydayhealth.com/images/newsletter-signup/diet-and-nutrition-nl-signup.jpg?sfvrsn=3a241b07_2);">
 	<section class="ftco-section">
 		<div class="container">
+			{% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
 					<h2 class="heading-section">Login | HealthCare</h2>
@@ -25,16 +32,14 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 		      	<h3 class="mb-4 text-center">Have an account?</h3>
-		      	<form action="#" class="signin-form">
+		      	<form action="#" method="post" class="signin-form">
+					{% csrf_token %}
 		      		<div class="form-group">
-		      			<input type="text" name="username" class="form-control" placeholder="Username" required>
+		      			<input type="text" name="username" class="form-control" placeholder="Username" required_id="id_username">
 		      		</div>
 
-                      <div class="form-group">
-                        <input type="text" name="username" class="form-control" placeholder="someone@gmail.com" required>
-                    </div>
 	            <div class="form-group">
-	              <input id="password-field" type="password" class="form-control" placeholder="Password" required>
+	              <input id="password-field" name="password" type="password" class="form-control" placeholder="Password" required_id="id_password">
 	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	            </div>
 	            <div class="form-group">

@@ -65,7 +65,7 @@ def signup_main(request):
 def signin_main(request):
     if request.method == "POST":
         username = request.POST.get("username")
-        password = request.POST.get("email")
+        password = request.POST.get("password")
 
         user = auth.authenticate(username=username, password=password)
 
@@ -77,7 +77,7 @@ def signin_main(request):
             messages.info(request, "Credentials Invalid")
             return redirect("login")
     else:
-        return render(request, "users/login.html")
+        return render(request, "users/signin.html")
 
 
 
