@@ -1,8 +1,10 @@
+import imp
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegistrationForm
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib import auth
 
 # Create your views here.
 
@@ -65,7 +67,17 @@ def signin_main(request):
         username = request.POST.get("username")
         password = request.POST.get("email")
 
+        user = auth.authenticate(username=username, password=password)
 
+        if user is not None:
+            auth.login(request, user)
+            return  redirect("home")
         
+        else:
+            messages.info(request, "Credentials Invalid")
+            return redirect("login")
+    else:
+        return render(request, "users/login.html")
+
 
 
