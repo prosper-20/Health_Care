@@ -1,7 +1,8 @@
+import email
 from this import d
 from django.shortcuts import render, redirect
-from .forms import ConsultationForm
-from .models import Consultation
+from .forms import ConsultationForm, SubscriptionForm
+from .models import Consultation, Subscription
 from django.contrib import messages
 
 # Create your views here.
@@ -69,6 +70,18 @@ def consultation(request):
     
 #     else:
 #         return render(request, "")
+
+
+def subscription(request):
+    if request.method == "POST":
+        email = request.POST.get(email)
+
+        subscriber = Subscription.objects.create(email=email)
+        subscriber.save()
+        messages.success(request, 'You have successfully subscribed to our newsletter!')
+        return redirect("home")
+    else:
+        return render(request, 'core/home.html')
         
 
 
