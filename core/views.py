@@ -126,21 +126,24 @@ def BMIChecker(request):
             form.save()
             weight = form.cleaned_data.get("weight")
             height = form.cleaned_data.get("height")
-            f_weight = float(weight)
-            f_height = float(height)
+           
 
-            metre_height = f_height // 100
+            metre_height = height / 100
 
-            BMI_Index = f_weight // (metre_height ** 2)
+            BMI_Index = int(weight // (metre_height ** 2))
+            print(BMI_Index)
+            print(type(BMI_Index))
 
-            if BMI_Index in range (24.9, 30):
+           
+
+            if BMI_Index in range (25, 30):
                 messages.warning(request, f"Your BMI index is {BMI_Index}, you are overweight!")
                 return redirect("home")
-            elif BMI_Index in range(18.4, 25):
+            elif BMI_Index in range(18, 25):
                 messages.success(request, f"Your BMI index is {BMI_Index}, you are healthy!")
                 return redirect("home")
             elif BMI_Index > 30:
-                messages.error(request, f"Your BMI index is {BMI_Index}, you are obese!")
+                messages.warning(request, f"Your BMI index is {BMI_Index}, you are obese!")
                 return redirect("home")
             else:
                 messages.error(request, "Invalid values entered..please try again")
