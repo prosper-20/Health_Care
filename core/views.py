@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ConsultationForm
 from .models import Consultation
 from django.contrib import messages
@@ -14,7 +14,17 @@ def consultation(request):
         form = ConsultationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get("username")
-            messages.success(request, )
+            username = form.cleaned_data.get("first")
+            messages.success(request, f"Hi {username}, you have successfully booked a session with us.. see you soon")
+            return redirect('home')
+
+    else:
+        form = ConsultationForm()
+
+    context = {
+        "form": form
+    }
+    return render(request, "core/consultation.html", context)
+        
 
 
