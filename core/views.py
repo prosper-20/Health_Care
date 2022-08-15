@@ -30,6 +30,34 @@ def home(request):
         return render(request, 'core/home.html')
 
 
+def Home(request):
+    if request.method == "POST":
+        if "first_name" in request.POST:
+            first_name = request.POST.get("first_name")
+            last_name = request.POST.get('last_name')
+            service = request.POST.get("service")
+            date = request.POST.get("date")
+            time = request.POST.get("time")
+
+            consultation = Consultation.objects.create(
+                first_name = first_name,
+                last_name = last_name,
+                service = service,
+                date = date,
+                time = time
+            )
+            consultation.save()
+            messages.success(request, f"Hi {first_name}, you have successfully booked a session with us.. see you soon")
+            return redirect("home")
+        elif "subscriber_email" in request.POST:
+            subscriber_email = request.POST.get("subscriber_email")
+            subscriber = Subscription.objects.create(subscriber_email=subscriber_email)
+            subscriber.save()
+            messages.success(request, 'You have successfully subscribed to our newsletter!')
+            return redirect("home")
+
+
+
 def consultation(request):
     if request.method == "POST":
         form = ConsultationForm(request.POST)

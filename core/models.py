@@ -41,8 +41,8 @@ class Consultation(models.Model):
 
 
 class Subscription(models.Model):
-    email = models.EmailField()
+    subscriber_email = models.EmailField()
 
     def __str__(self):
-        return self.email
+        return self.subscriber_email
 
