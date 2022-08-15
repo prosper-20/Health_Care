@@ -115,7 +115,7 @@ def subscription(request):
         "form": form
     }
     
-    return render(request, 'core/subscription.html')
+    return render(request, 'core/subscription.html', context)
         
 
 
