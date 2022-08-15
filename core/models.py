@@ -46,3 +46,10 @@ class Subscription(models.Model):
     def __str__(self):
         return self.subscriber_email
 
+
+class BMI(models.Model):
+    weight = models.FloatField(help_text="Kg")
+    height = models.FloatField(help_text="Cm")
+
+    def bmi_result(self):
+        return self.weight // (self.height ** 2)
