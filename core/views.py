@@ -1,4 +1,5 @@
 import email
+from sys import flags
 from this import d
 from django.shortcuts import render, redirect
 from .forms import ConsultationForm, SubscriptionForm, BMIForm
@@ -125,14 +126,21 @@ def BMIChecker(request):
             form.save()
             weight = form.cleaned_data.get("weight")
             height = form.cleaned_data.get("height")
+            f_weight = float(weight)
+            f_height = float(height)
 
-            BMI_Index = weight // (height ** 2)
+            metre_height = f_height // 100
 
-            if BMI_Index > 25:
+            BMI_Index = f_weight // (metre_height ** 2)
+
+            if BMI_Index in range (24.9, 30):
                 messages.warning(request, f"Your BMI index is {BMI_Index}, you are overweight!")
                 return redirect("home")
-            elif BMI_Index < 25:
+            elif BMI_Index in range(18.4, 25):
                 messages.success(request, f"Your BMI index is {BMI_Index}, you are healthy!")
+                return redirect("home")
+            elif BMI_Index > 30:
+                messages.error(request, f"Your BMI index is {BMI_Index}, you are obese!")
                 return redirect("home")
             else:
                 messages.error(request, "Invalid values entered..please try again")
