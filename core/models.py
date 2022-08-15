@@ -7,7 +7,8 @@ SERVICES_CHOICES = (
         ("Gym Session", "Gym Session"),
         ("Therapy Session", "Therapy Session"),
         ("Massage", "Massage"),
-        ("Spa", "Spa")
+        ("Spa", "Spa"),
+        ("Healthy Food", "Healthy Food")
     )
 )
 
