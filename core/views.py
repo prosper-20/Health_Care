@@ -158,6 +158,9 @@ def BMIChecker(request):
     
     return render(request, 'core/bmi_checker.html', context)
 
+def services(request):
+    return render(request, 'core/services.html')
+
 
 
 
