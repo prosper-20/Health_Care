@@ -36,5 +36,5 @@ class Consultation(models.Model):
     time = models.CharField(choices=TIME_CHOICES, max_length=50)
 
     def __str__(self):
-        return self.first
+        return self.first_name
 

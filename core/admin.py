@@ -4,8 +4,7 @@ from .models import Consultation
 # Register your models here.
 
 class ConsultationAdmin(admin.ModelAdmin):
-    class Meta:
-        list_display = ["first", "last", "service", "date"]
+        list_display = ["first_name", "last_name", "service", "date", "time"]
 
 
 
