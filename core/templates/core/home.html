@@ -61,11 +61,20 @@
 	  </nav>
     <!-- END nav -->
 
+	
+
     <div class="hero-wrap js-fullheight">
 	    <div class="home-slider owl-carousel js-fullheight">
 	      <div class="slider-item js-fullheight" style="background-image:url(/static/core/images/bg_1.jpg);">
 	      	<div class="overlay"></div>
 	        <div class="container">
+				{% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
 	          <div class="row no-gutters slider-text align-items-center">
 		          <div class="col-md-7 ftco-animate">
 		          	<div class="text w-100">
