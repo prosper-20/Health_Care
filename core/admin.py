@@ -16,3 +16,6 @@ admin.site.register(Subscription)
 
 class QuestionAdmin(admin.ModelAdmin):
         list_display = ["question", "gender", "focus"]
+
+
+admin.site.register(Question, QuestionAdmin)
