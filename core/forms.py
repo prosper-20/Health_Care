@@ -1,5 +1,5 @@
 from django import forms
-from .models import Consultation, Subscription, BMI
+from .models import Consultation, Subscription, BMI, Question
 
 
 class ConsultationForm(forms.ModelForm):
@@ -21,3 +21,11 @@ class BMIForm(forms.ModelForm):
         model = BMI
 
         fields = ["weight", "height"]
+
+
+class GenderForm(forms.ModelForm):
+    class Meta:
+        model = Question
+
+        fields = ["gender"]
+
