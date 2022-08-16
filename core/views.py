@@ -187,7 +187,7 @@ def focus(request):
     context = {
         "form": form
     }
-    return render(request, "core/gender.html", context)
+    return render(request, "core/focus.html", context)
 
 
 def main_goal(request):
@@ -201,10 +201,10 @@ def main_goal(request):
     context = {
         "form": form
     }
-    return render(request, "core/gender.html", context)
+    return render(request, "core/main_goal.html", context)
 
 
-def gender(request):
+def motivation(request):
     if request.method == "POST":
         form = MotivationForm(request.POST)
         if form.is_valid():
@@ -215,7 +215,7 @@ def gender(request):
     context = {
         "form": form
     }
-    return render(request, "core/gender.html", context)
+    return render(request, "core/motivation.html", context)
 
 
 
