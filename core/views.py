@@ -2,8 +2,8 @@ import email
 from sys import flags
 from this import d
 from django.shortcuts import render, redirect
-from .forms import ConsultationForm, SubscriptionForm, BMIForm
-from .models import Consultation, Subscription, BMI
+from .forms import ConsultationForm, SubscriptionForm, BMIForm, GenderForm
+from .models import Consultation, Subscription, BMI, Question
 from django.contrib import messages
 
 # Create your views here.
@@ -160,6 +160,11 @@ def BMIChecker(request):
 
 def services(request):
     return render(request, 'core/services.html')
+
+
+def gender(request):
+    if request.method == "POST":
+
 
 
 
