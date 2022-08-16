@@ -12,6 +12,12 @@ SERVICES_CHOICES = (
     )
 )
 
+GOAL_CHOICES = (
+    ("Lose weight", "Lose weight"),
+    ("Build Muscles", "Build Muscles"),
+    ("Keep Fit", "Keep Fit")
+)
+
 
 TIME_CHOICES = (
     ("8:00AM", "8:00AM"),
@@ -27,6 +33,19 @@ TIME_CHOICES = (
     ("6:00PM", "6:00 PM"),
     ("7:00PM", '7:00 PM')
 )
+
+GENDER_CHOICES = (
+    ("Male", "Male"),
+    ("Female", "Female")
+)
+
+BODY_CHOICES = (
+    ("Chest", "Chest"),
+    ("Abs", "Abs")
+    ("Arms", "Arms"),
+    ("Legs", "Legs")
+)
+
 
 
 class Consultation(models.Model):
@@ -53,3 +72,10 @@ class BMI(models.Model):
 
     def bmi_result(self):
         return self.weight // (self.height ** 2)
+
+
+class Question(models.Model):
+    question = models.CharField(max_length=200)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=50)
+    focus = models.CharField(choices=BODY_CHOICES, max_length=50)
+    main_goal = models.CharField(choices=GOAL_CHOICES, max_length=50)
