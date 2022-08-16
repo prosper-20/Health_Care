@@ -167,7 +167,7 @@ def gender(request):
         form = GenderForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect("focus")
     else:
         form = GenderForm()
     context = {
@@ -181,7 +181,7 @@ def focus(request):
         form = FocusForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect("main_goal")
     else:
         form = FocusForm()
     context = {
@@ -195,7 +195,7 @@ def main_goal(request):
         form = MainGoalForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect("motivation")
     else:
         form = MainGoalForm()
     context = {
