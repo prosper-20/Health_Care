@@ -41,9 +41,16 @@ GENDER_CHOICES = (
 
 BODY_CHOICES = (
     ("Chest", "Chest"),
-    ("Abs", "Abs")
+    ("Abs", "Abs"),
     ("Arms", "Arms"),
     ("Legs", "Legs")
+)
+
+MOTIVATION_CHOICES = (
+    ("Feel Confident", "Feel Confident"),
+    ("Release Stress", "Release Stress"),
+    ("Improve Health", "Improve Health"),
+    ("Boost Energy", "Boost Energy")
 )
 
 
@@ -79,3 +86,7 @@ class Question(models.Model):
     gender = models.CharField(choices=GENDER_CHOICES, max_length=50)
     focus = models.CharField(choices=BODY_CHOICES, max_length=50)
     main_goal = models.CharField(choices=GOAL_CHOICES, max_length=50)
+    motivation = models.CharField(choices=MOTIVATION_CHOICES, max_length=100)
+
+    def __str__(self):
+        return self.question
