@@ -164,6 +164,16 @@ def services(request):
 
 def gender(request):
     if request.method == "POST":
+        form = GenderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+    else:
+        form = GenderForm()
+    context = {
+        "form": form
+    }
+    return render(request, "core/gender.html", context)
 
 
 

@@ -4,7 +4,8 @@ from .views import (
     Home, 
     subscription,
     BMIChecker,
-    services
+    services, 
+    gender
 )
 
 urlpatterns = [
@@ -12,5 +13,6 @@ urlpatterns = [
     path("consultation/", consultation, name="consultation"),
     path('subscribe/', subscription, name="subscription"),
     path("bmi/checker/", BMIChecker, name="bmi_checker"),
-    path("services", services, name="services")
+    path("services", services, name="services"),
+    path("gender", gender, name="gender")
 ]
