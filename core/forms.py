@@ -29,3 +29,21 @@ class GenderForm(forms.ModelForm):
 
         fields = ["gender"]
 
+class FocusForm(forms.ModelForm):
+    class Meta:
+        model = Question
+
+        fields = ["focus"]
+
+class MainGoalForm(forms.ModelForm):
+    class Meta:
+        model = Question
+
+        fields = ["main_goal"]
+
+class MotivationForm(forms.ModelForm):
+    class Meta:
+        model = Question
+
+        fields = ["motivation"]
+

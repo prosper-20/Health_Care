@@ -2,7 +2,7 @@ import email
 from sys import flags
 from this import d
 from django.shortcuts import render, redirect
-from .forms import ConsultationForm, SubscriptionForm, BMIForm, GenderForm
+from .forms import ConsultationForm, SubscriptionForm, BMIForm, GenderForm, FocusForm, MainGoalForm, MotivationForm
 from .models import Consultation, Subscription, BMI, Question
 from django.contrib import messages
 
@@ -170,6 +170,48 @@ def gender(request):
             return redirect("home")
     else:
         form = GenderForm()
+    context = {
+        "form": form
+    }
+    return render(request, "core/gender.html", context)
+
+
+def focus(request):
+    if request.method == "POST":
+        form = FocusForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+    else:
+        form = FocusForm()
+    context = {
+        "form": form
+    }
+    return render(request, "core/gender.html", context)
+
+
+def main_goal(request):
+    if request.method == "POST":
+        form = MainGoalForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+    else:
+        form = MainGoalForm()
+    context = {
+        "form": form
+    }
+    return render(request, "core/gender.html", context)
+
+
+def gender(request):
+    if request.method == "POST":
+        form = MotivationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+    else:
+        form = MotivationForm()
     context = {
         "form": form
     }
