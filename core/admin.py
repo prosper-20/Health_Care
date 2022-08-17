@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Consultation, Subscription, Question
+from .models import Consultation, Subscription, Question, Personalization
 
 # Register your models here.
 
@@ -19,3 +19,10 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Question, QuestionAdmin)
+
+
+class PersonalizationAdmin(admin.ModelAdmin):
+        list_display = ["user", "gender", "focus", "main_goal", "motivation", "activity_level"]
+
+
+admin.site.register(Personalization, QuestionAdmin)

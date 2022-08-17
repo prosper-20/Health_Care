@@ -54,6 +54,13 @@ MOTIVATION_CHOICES = (
     ("Boost Energy", "Boost Energy")
 )
 
+ACTIVITY_LEVEL_CHOICES = (
+    ("Sedentary", "Sedentary"),
+    ("Lightly Active", "Lightly Active"),
+    ("Moderately Active", "Moderately Active"),
+    ("Very Active", "Very Active")
+)
+
 
 
 class Consultation(models.Model):
@@ -91,3 +98,18 @@ class Question(models.Model):
 
     def __str__(self):
         return self.user
+
+
+class Personalization(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=50)
+    focus = models.CharField(choices=BODY_CHOICES, max_length=50)
+    main_goal = models.CharField(choices=GOAL_CHOICES, max_length=50)
+    motivation = models.CharField(choices=MOTIVATION_CHOICES, max_length=100)
+    activity_level = models.CharField(choices=ACTIVITY_LEVEL_CHOICES, max_length=100)
+
+    def __str__(self):
+        return self.user
+
+
+

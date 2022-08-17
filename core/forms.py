@@ -1,5 +1,5 @@
 from django import forms
-from .models import Consultation, Subscription, BMI, Question
+from .models import Consultation, Subscription, BMI, Question, Personalization
 
 
 class ConsultationForm(forms.ModelForm):
@@ -25,7 +25,7 @@ class BMIForm(forms.ModelForm):
 
 class RoutineForm(forms.ModelForm):
     class Meta:
-        model = Question
+        model = Personalization
 
         fields = "__all__"
 
