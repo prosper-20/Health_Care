@@ -90,4 +90,4 @@ class Question(models.Model):
     motivation = models.CharField(choices=MOTIVATION_CHOICES, max_length=100)
 
     def __str__(self):
-        return self.question
+        return self.user

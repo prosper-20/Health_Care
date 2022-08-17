@@ -167,7 +167,7 @@ def routine(request):
         form = RoutineForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Your routine has successfully been created based on your preferences!")
+            messages.success(request, "Your routine has been successfully been created based on your preferences!")
             return redirect("home")
     else:
         form = RoutineForm()
