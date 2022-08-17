@@ -88,7 +88,7 @@
                   <div><a href="#">{{ post.author }}</a></div>
                   <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                 </div>
-                <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
+                <h3 class="heading"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                 <p>{{ post.content| truncatewords:50}}</p>
                 <p><a href="#" class="btn btn-primary">Read more</a></p>
               </div>
