@@ -183,7 +183,7 @@ class RoutineCreateView(LoginRequiredMixin, CreateView):
     fields = ["gender", "focus", "main_goal", "motivation", "activity_level"]
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
+        form.instance.user = self.request.user
         return super().form_valid(form)
 
 # def gender(request):
