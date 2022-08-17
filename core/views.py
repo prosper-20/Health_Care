@@ -1,10 +1,10 @@
-import email
-from sys import flags
-from this import d
+import imp
 from django.shortcuts import render, redirect
 from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm
-from .models import Consultation, Subscription, BMI, Question
+from .models import Consultation, Personalization, Subscription, BMI, Question
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView
 
 # Create your views here.
 
@@ -176,6 +176,15 @@ def routine(request):
         "form": form
     }
     return render(request, "core/routine.html", context)
+
+
+class RoutineCreateView(LoginRequiredMixin, CreateView):
+    model = Personalization
+    fields = ["gender", "focus", "main_goal", "motivation", "activity_level"]
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 # def gender(request):
 #     if request.method == "POST":
