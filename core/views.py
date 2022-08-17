@@ -171,7 +171,8 @@ def gender(request):
     else:
         form = GenderForm()
     context = {
-        "form": form
+        "form": form,
+        
     }
     return render(request, "core/gender.html", context)
 
