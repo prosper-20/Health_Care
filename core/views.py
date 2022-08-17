@@ -165,6 +165,17 @@ def services(request):
 def routine(request):
     if request.method == "POST":
         form = RoutineForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your routine has successfully been created based on your preferences!")
+            return redirect("home")
+    else:
+        form = RoutineForm()
+    
+    context = {
+        "form": form
+    }
+    return render(request, "core/routine.html", context)
 
 # def gender(request):
 #     if request.method == "POST":
