@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -82,6 +83,7 @@ class BMI(models.Model):
 
 
 class Question(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=50)
     focus = models.CharField(choices=BODY_CHOICES, max_length=50)
     main_goal = models.CharField(choices=GOAL_CHOICES, max_length=50)

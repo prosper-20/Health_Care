@@ -5,10 +5,7 @@ from .views import (
     subscription,
     BMIChecker,
     services, 
-    gender,
-    motivation,
-    focus,
-    main_goal
+    routine
 )
 
 urlpatterns = [
@@ -17,8 +14,6 @@ urlpatterns = [
     path('subscribe/', subscription, name="subscription"),
     path("bmi/checker/", BMIChecker, name="bmi_checker"),
     path("services", services, name="services"),
-    path("gender/", gender, name="gender"),
-    path("focus/", focus, name="focus"),
-    path("main-goal/", main_goal, name="main_goal"),
-    path("motivation/", motivation, name="motivation")
+    path("my-routine/", routine, name="routine")
+   
 ]
