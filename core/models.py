@@ -82,7 +82,6 @@ class BMI(models.Model):
 
 
 class Question(models.Model):
-    question = models.CharField(max_length=200)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=50)
     focus = models.CharField(choices=BODY_CHOICES, max_length=50)
     main_goal = models.CharField(choices=GOAL_CHOICES, max_length=50)

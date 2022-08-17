@@ -2,7 +2,7 @@ import email
 from sys import flags
 from this import d
 from django.shortcuts import render, redirect
-from .forms import ConsultationForm, SubscriptionForm, BMIForm, GenderForm, FocusForm, MainGoalForm, MotivationForm
+from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm
 from .models import Consultation, Subscription, BMI, Question
 from django.contrib import messages
 
@@ -162,61 +162,65 @@ def services(request):
     return render(request, 'core/services.html')
 
 
-def gender(request):
+def routine(request):
     if request.method == "POST":
-        form = GenderForm(request.POST)
-        if form.is_valid():
-            # form.save()
-            return redirect("focus")
-    else:
-        form = GenderForm()
-    context = {
-        "form": form,
+        form = RoutineForm(request.POST)
+
+# def gender(request):
+#     if request.method == "POST":
+#         form = GenderForm(request.POST)
+#         if form.is_valid():
+#             # form.save()
+#             return redirect("focus")
+#     else:
+#         form = GenderForm()
+#     context = {
+#         "form": form,
         
-    }
-    return render(request, "core/gender.html", context)
+#     }
+#     return render(request, "core/gender.html", context)
 
 
-def focus(request):
-    if request.method == "POST":
-        form = FocusForm(request.POST)
-        if form.is_valid():
-            # form.save()
-            return redirect("main_goal")
-    else:
-        form = FocusForm()
-    context = {
-        "form": form
-    }
-    return render(request, "core/focus.html", context)
+# def focus(request):
+#     if request.method == "POST":
+#         form = FocusForm(request.POST)
+#         if form.is_valid():
+#             # form.save()
+#             return redirect("main_goal")
+#     else:
+#         form = FocusForm()
+#     context = {
+#         "form": form
+#     }
+#     return render(request, "core/focus.html", context)
 
 
-def main_goal(request):
-    if request.method == "POST":
-        form = MainGoalForm(request.POST)
-        if form.is_valid():
-            # form.save()
-            return redirect("motivation")
-    else:
-        form = MainGoalForm()
-    context = {
-        "form": form
-    }
-    return render(request, "core/main_goal.html", context)
+# def main_goal(request):
+#     if request.method == "POST":
+#         form = MainGoalForm(request.POST)
+#         if form.is_valid():
+#             # form.save()
+#             return redirect("motivation")
+#     else:
+#         form = MainGoalForm()
+#     context = {
+#         "form": form
+#     }
+#     return render(request, "core/main_goal.html", context)
 
 
-def motivation(request):
-    if request.method == "POST":
-        form = MotivationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("home")
-    else:
-        form = MotivationForm()
-    context = {
-        "form": form
-    }
-    return render(request, "core/motivation.html", context)
+# def motivation(request):
+#     if request.method == "POST":
+#         form = MotivationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("home")
+#     else:
+#         form = MotivationForm()
+#     context = {
+#         "form": form
+#     }
+#     return render(request, "core/motivation.html", context)
 
 
 

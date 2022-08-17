@@ -23,27 +23,34 @@ class BMIForm(forms.ModelForm):
         fields = ["weight", "height"]
 
 
-class GenderForm(forms.ModelForm):
+class RoutineForm(forms.ModelForm):
     class Meta:
         model = Question
 
-        fields = ["gender"]
+        fields = "__all__"
 
-class FocusForm(forms.ModelForm):
-    class Meta:
-        model = Question
 
-        fields = ["focus"]
+# class GenderForm(forms.ModelForm):
+#     class Meta:
+#         model = Question
 
-class MainGoalForm(forms.ModelForm):
-    class Meta:
-        model = Question
+#         fields = ["gender"]
 
-        fields = ["main_goal"]
+# class FocusForm(forms.ModelForm):
+#     class Meta:
+#         model = Question
 
-class MotivationForm(forms.ModelForm):
-    class Meta:
-        model = Question
+#         fields = ["focus"]
 
-        fields = ["motivation"]
+# class MainGoalForm(forms.ModelForm):
+#     class Meta:
+#         model = Question
+
+#         fields = ["main_goal"]
+
+# class MotivationForm(forms.ModelForm):
+#     class Meta:
+#         model = Question
+
+#         fields = ["motivation"]
 
