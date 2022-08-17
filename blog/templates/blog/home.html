@@ -77,23 +77,25 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 ftco-animate">
-
-						<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 rounded img-2" style="background-image: url(/static/core/images/image_1.jpg);">
+            
+            {% for post in posts %}
+			<div class="blog-entry align-self-stretch">
+              <a href="blog-single.html" class="block-20 rounded img-2" style="background-image: url({{ post.image.url }});">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
-                  <div><a href="#">January 30, 2020</a></div>
-                  <div><a href="#">Admin</a></div>
+                  <div><a href="#">{{ post.date_posted }}</a></div>
+                  <div><a href="#">{{ post.author }}</a></div>
                   <div><a href="#" class="meta-chat"><span class="fa fa-comment"></span> 3</a></div>
                 </div>
-                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                <h3 class="heading"><a href="#">{{ post.title }}</a></h3>
+                <p>{{ post.content| truncatewords:50}}</p>
                 <p><a href="#" class="btn btn-primary">Read more</a></p>
               </div>
             </div>
+            {% endfor %}
 
-            <div class="blog-entry align-self-stretch">
+            <!-- <div class="blog-entry align-self-stretch">
               <a href="blog-single.html" class="block-20 rounded img-2" style="background-image: url(/static/core/images/image_2.jpg);">
               </a>
               <div class="text mt-3">
@@ -166,7 +168,7 @@
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                 <p><a href="#" class="btn btn-primary">Read more</a></p>
               </div>
-            </div>
+            </div> -->
 
             <div class="row mt-5">
 		          <div class="col text-center">
