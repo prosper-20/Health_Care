@@ -204,7 +204,7 @@ def contact(request):
 
 def contact_main(request):
     if request.method == "POST":
-        name = request.POST.get("username")
+        name = request.POST.get("name")
         email = request.POST.get("email")
         subject = request.POST.get("subject")
         message = request.POST.get("message")
