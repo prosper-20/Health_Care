@@ -186,6 +186,10 @@ class RoutineCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+
+def contact(request):
+    return render(request, 'core/contact.html')
+
 # def gender(request):
 #     if request.method == "POST":
 #         form = GenderForm(request.POST)

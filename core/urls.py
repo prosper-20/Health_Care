@@ -6,7 +6,8 @@ from .views import (
     BMIChecker,
     services, 
     routine, 
-    RoutineCreateView
+    RoutineCreateView,
+    contact
 )
 
 urlpatterns = [
@@ -16,6 +17,7 @@ urlpatterns = [
     path("bmi/checker/", BMIChecker, name="bmi_checker"),
     path("services", services, name="services"),
     path("my-routine/", routine, name="routine"),
-    path("create/", RoutineCreateView.as_view(), name="create")
+    path("create/", RoutineCreateView.as_view(), name="create"),
+    path("contact/", contact, name="contact")
    
 ]

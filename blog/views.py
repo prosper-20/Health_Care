@@ -17,3 +17,5 @@ def detail(request, slug):
         'post': post
     }
     return render(request, 'blog/detail.html', context)
+
+
