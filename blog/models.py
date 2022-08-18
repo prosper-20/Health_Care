@@ -34,7 +34,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField()
-    tags = models.ManyToManyField(Tags)
+    tags = models.ManyToManyField(Tags, related_name='tags')
     
 
     def __str__(self):
