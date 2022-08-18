@@ -5,16 +5,20 @@ from django.urls import reverse
 
 # Create your models here.
 
-TAG_CHOICES = (
-    ("Food", "Food"),
-    ("Life", "Life"),
-    ("Coach", "Coach"),
-    ("Healthy", "Healthy"),
-    ("Lifestyle", "Lifestyle"),
-    ("Green", "Green"),
-    ("Exercise", "Exercise"),
-    ("Dietician", "Dietician")
-)
+# TAG_CHOICES = (
+#     ("Food", "Food"),
+#     ("Life", "Life"),
+#     ("Coach", "Coach"),
+#     ("Healthy", "Healthy"),
+#     ("Lifestyle", "Lifestyle"),
+#     ("Green", "Green"),
+#     ("Exercise", "Exercise"),
+#     ("Dietician", "Dietician")
+# )
+
+class Tags(models.Model):
+    choice = models.CharField(max_length=154)
+
 
 
 class Post(models.Model):
@@ -24,6 +28,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField()
+    tags = models.ManyToManyField(Tags)
     
 
     def __str__(self):
