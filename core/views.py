@@ -1,6 +1,6 @@
 import imp
 from django.shortcuts import render, redirect
-from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm
+from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm, ContactForm
 from .models import Consultation, Personalization, Subscription, BMI, Question
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -188,6 +188,11 @@ class RoutineCreateView(LoginRequiredMixin, CreateView):
 
 
 def contact(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            name = form.cleaned_data.get
     return render(request, 'core/contact.html')
 
 # def gender(request):
