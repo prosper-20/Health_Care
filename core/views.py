@@ -193,7 +193,7 @@ def contact(request):
         if form.is_valid():
             form.save()
             name = form.cleaned_data.get("name")
-            messages.success(request, f"Hi {name}, your message has been received. We wil reach out to you as soon as possible")
+            messages.success(request, f"Hi {name}, your message has been received. We will reach out to you as soon as possible")
             return redirect("home")
     else:
         form = ContactForm()

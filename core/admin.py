@@ -36,3 +36,6 @@ admin.site.register(Personalization, QuestionAdmin)
 
 class ContactAdmin(admin.ModelAdmin):
         list_display = ["name", "email", "subject"]
+
+
+admin.site.register(Contact, ContactAdmin)
