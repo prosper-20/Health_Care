@@ -5,6 +5,17 @@ from django.urls import reverse
 
 # Create your models here.
 
+TAG_CHOICES = (
+    ("Food", "Food"),
+    ("Life", "Life"),
+    ("Coach", "Coach"),
+    ("Healthy", "Healthy"),
+    ("Lifestyle", "Lifestyle"),
+    ("Green", "Green"),
+    ("Exercise", "Exercise"),
+    ("Dietician", "Dietician")
+)
+
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
