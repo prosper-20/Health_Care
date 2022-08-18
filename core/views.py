@@ -192,8 +192,15 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            name = form.cleaned_data.get
-    return render(request, 'core/contact.html')
+            name = form.cleaned_data.get("name")
+            messages.success(request, f"Hi {name}, your message has been received. We wil reach out to you as soon as possible")
+            return redirect("home")
+    else:
+        form = ContactForm()
+    context = {
+        "form": form
+    }
+    return render(request, 'core/contact_1.html', context)
 
 # def gender(request):
 #     if request.method == "POST":
