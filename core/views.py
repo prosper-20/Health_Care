@@ -1,7 +1,7 @@
 import imp
 from django.shortcuts import render, redirect
 from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm, ContactForm
-from .models import Consultation, Personalization, Subscription, BMI, Question
+from .models import Consultation, Personalization, Subscription, BMI, Question, Contact
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
@@ -201,6 +201,29 @@ def contact(request):
         "form": form
     }
     return render(request, 'core/contact_1.html', context)
+
+def contact_main(request):
+    if request.method == "POST":
+        name = request.POST.get("username")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        contact = Contact.objects.create(
+            name=name,
+            email=email,
+            subject=subject,
+            mesage=message
+        )
+        contact.save()
+        messages.success(request,f"Hi {name}, your message has been received. We will reach out to you as soon as possible")
+        return redirect("home")
+
+    else:
+        return render(request, "core/contact.html")
+
+
+
 
 # def gender(request):
 #     if request.method == "POST":
