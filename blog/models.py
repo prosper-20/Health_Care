@@ -19,6 +19,12 @@ from django.urls import reverse
 class Tags(models.Model):
     choice = models.CharField(max_length=154)
 
+    class Meta:
+        verbose_name_plural = "Tags"
+
+    def __str__(self):
+        return self.choice
+
 
 
 class Post(models.Model):
