@@ -223,6 +223,10 @@ def contact_main(request):
         return render(request, "core/contact.html")
 
 
+def about(request):
+    return render(request, "core/about.html")
+
+
 
 
 # def gender(request):
