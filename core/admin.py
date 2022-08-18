@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import Consultation, Subscription, Question, Personalization
+from .models import (
+        Consultation,
+        Subscription, 
+        Question, 
+        Personalization,
+        Contact
+)
 
 # Register your models here.
 
@@ -26,3 +32,7 @@ class PersonalizationAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Personalization, QuestionAdmin)
+
+
+class ContactAdmin(admin.ModelAdmin):
+        list_display = ["name", "email", "subject"]
