@@ -7,7 +7,8 @@ from .views import (
     services, 
     routine, 
     RoutineCreateView,
-    contact
+    contact, 
+    contact_main
 )
 
 urlpatterns = [
@@ -18,6 +19,6 @@ urlpatterns = [
     path("services", services, name="services"),
     path("my-routine/", routine, name="routine"),
     path("create/", RoutineCreateView.as_view(), name="create"),
-    path("contact/", contact, name="contact")
+    path("contact/", contact_main, name="contact")
    
 ]

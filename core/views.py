@@ -213,7 +213,7 @@ def contact_main(request):
             name=name,
             email=email,
             subject=subject,
-            mesage=message
+            message=message
         )
         contact.save()
         messages.success(request,f"Hi {name}, your message has been received. We will reach out to you as soon as possible")
