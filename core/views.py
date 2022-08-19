@@ -56,7 +56,11 @@ def Home(request):
             messages.success(request, 'You have successfully subscribed to our newsletter!')
             return redirect("home")
     else:
-        return render(request, 'core/home.html')
+        services = Service.objects.all()
+        context = {
+            'services': services
+        }
+        return render(request, 'core/home.html', context)
 
 
 
