@@ -4,7 +4,8 @@ from .models import (
         Subscription, 
         Question, 
         Personalization,
-        Contact
+        Contact,
+        Coach
 )
 
 # Register your models here.
@@ -39,3 +40,9 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Contact, ContactAdmin)
+
+class CoachAdmin(admin.ModelAdmin):
+        list_display = ["name", "job_title", "about"]
+
+
+admin
