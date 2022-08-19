@@ -1,4 +1,3 @@
-import imp
 from django.shortcuts import render, redirect
 from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm, ContactForm
 from .models import Consultation, Personalization, Subscription, BMI, Question, Contact
@@ -225,6 +224,9 @@ def contact_main(request):
 
 def about(request):
     return render(request, "core/about.html")
+
+def coach(request):
+    return render(request, "core/coach.html")
 
 
 
