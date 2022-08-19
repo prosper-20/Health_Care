@@ -226,7 +226,11 @@ def about(request):
     return render(request, "core/about.html")
 
 def coach(request):
-    return render(request, "core/coach.html")
+    coaches = Coach.objects.all()
+    context = {
+        'coaches': coaches
+    }
+    return render(request, "core/coach.html", context)
 
 
 

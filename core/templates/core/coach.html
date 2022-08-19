@@ -77,16 +77,17 @@
     <section class="ftco-section bg-light">
 			<div class="container">
 				<div class="row">
+					{% for coach in coaches %}
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(/static/core/images/staff-1.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url({{ coach.image.url }});"></div>
 							</div>
 							<div class="text pt-3 px-3 pb-4 text-center">
-								<h3>Lloyd Wilson</h3>
-								<span class="position mb-2">Health Coach</span>
+								<h3>{{ coach.name }}</h3>
+								<span class="position mb-2">{{ coach.job_title }}</span>
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+									<p>{{ coach.about }}</p>
 									<ul class="ftco-social text-center">
 		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
@@ -97,7 +98,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-lg-3 ftco-animate">
+					{% endfor %}
+					<!-- <div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
 								<div class="img align-self-stretch" style="background-image: url(/static/core/images/staff-2.jpg);"></div>
@@ -237,7 +239,7 @@
 	              </div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</section>
