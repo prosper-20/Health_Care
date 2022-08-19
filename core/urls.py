@@ -10,7 +10,8 @@ from .views import (
     contact, 
     contact_main,
     about,
-    coach
+    coach, 
+    service
 )
 
 urlpatterns = [
@@ -23,6 +24,7 @@ urlpatterns = [
     path("create/", RoutineCreateView.as_view(), name="create"),
     path("contact/", contact_main, name="contact"),
     path("about/", about, name="about"),
-    path("coach/", coach, name="coach")
+    path("coach/", coach, name="coach"),
+    path("service", service, name="service")
    
 ]

@@ -51,3 +51,5 @@ admin.site.register(Coach, CoachAdmin)
 
 class ServiceAdmin(admin.ModelAdmin):
         list_display = ["service_name", "description"]
+
+admin.site.register(Service, ServiceAdmin)
