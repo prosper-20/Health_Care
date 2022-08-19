@@ -129,7 +129,7 @@ class Contact(models.Model):
 
 class Coach(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="coach_pictures")
+    image = models.ImageField(default="coach.jog", upload_to="coach_pictures")
     job_title = models.CharField(max_length=100)
     about = models.TextField()
 
