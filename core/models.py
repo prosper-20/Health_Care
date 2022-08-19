@@ -132,6 +132,7 @@ class Coach(models.Model):
     image = models.ImageField(default="coach.jog", upload_to="coach_pictures")
     job_title = models.CharField(max_length=100)
     about = models.TextField()
+    followers = models.ManyToManyField(User, blank=True, related_name="followers")
 
     class Meta:
         verbose_name_plural = "coaches"
