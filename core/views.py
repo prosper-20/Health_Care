@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm, ContactForm
-from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach
+from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach, Service
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
@@ -231,6 +231,14 @@ def coach(request):
         'coaches': coaches
     }
     return render(request, "core/coach.html", context)
+
+
+def service(request):
+    services = Service.objects.all()
+    context = {
+        "services": services
+    }
+    return render(request, "core/service.html", context)
 
 
 

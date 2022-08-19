@@ -5,7 +5,8 @@ from .models import (
         Question, 
         Personalization,
         Contact,
-        Coach
+        Coach,
+        Service
 )
 
 # Register your models here.
@@ -46,3 +47,7 @@ class CoachAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Coach, CoachAdmin)
+
+
+class ServiceAdmin(admin.ModelAdmin):
+        list_display = ["service_name", "description"]
