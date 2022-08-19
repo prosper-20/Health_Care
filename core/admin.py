@@ -45,4 +45,4 @@ class CoachAdmin(admin.ModelAdmin):
         list_display = ["name", "job_title", "about"]
 
 
-admin
+admin.site.register(Coach, CoachAdmin)

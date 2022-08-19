@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -128,8 +129,12 @@ class Contact(models.Model):
 
 class Coach(models.Model):
     name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="coach_pictures")
     job_title = models.CharField(max_length=100)
     about = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "coaches"
 
     def __str__(self):
         return self.name
