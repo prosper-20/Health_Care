@@ -1,4 +1,5 @@
 from distutils.command.upload import upload
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -139,6 +140,15 @@ class Coach(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Service(models.Model):
+    service_name = models.CharField(max_length=100)
+    image = models.ImageField(default="service.jpg", upload_to='service_pictures')
+    description = models.TextField()
+
+    def __str__(self):
+        return self.service_name
 
 
 
