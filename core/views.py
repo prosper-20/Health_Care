@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm, ContactForm
-from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach, Service, Testimonies
+from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach, Service, Testimonies, Post
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
@@ -58,10 +58,12 @@ def Home(request):
     else:
         services = Service.objects.all()
         testimonies = Testimonies.objects.all()
+        posts = Post.objects.all()
 
         context = {
             'services': services,
-            "testimonies": testimonies
+            "testimonies": testimonies,
+            "posts": posts
         }
         return render(request, 'core/home.html', context)
 
