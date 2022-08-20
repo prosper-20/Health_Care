@@ -57,7 +57,7 @@ admin.site.register(Service, ServiceAdmin)
 
 
 class TestimomniesAdmin(admin.ModelAdmin):
-        list_display = ["name", "job_position", "comment"]
+        list_display = ["name", "job_position"]
 
 
 admin.site.register(Testimonies, TestimomniesAdmin)

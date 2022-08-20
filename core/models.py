@@ -157,6 +157,9 @@ class Testimonies(models.Model):
     image = models.ImageField(default="testimonies.jpg", upload_to="testimonials")
     comment = models.TextField()
 
+    class Meta:
+        verbose_name_plural = "Testimonies"
+
 
     def __str__(self):
         return self.name
