@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Post
 from .forms import CommentForm
+from django.contrib import messages
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -27,6 +29,8 @@ def detail(request, slug):
             new_comment.post = post
             # Save the comment to the database
             new_comment.save()
+            messages.success(request, "Your comment has been saved")
+            return reve
     else:
         comment_form = CommentForm()
     context = {
