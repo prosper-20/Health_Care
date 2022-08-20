@@ -17,14 +17,8 @@ class SubscriptionForm(forms.ModelForm):
 
 
 class BMIForm(forms.ModelForm):
-        weight = forms.CharField(
-        label='', 
-        widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'Enter your weight in kg'}
-        ))
-
-        class Meta:
-            model = BMI
+    class Meta:
+        model = BMI
 
         fields = ["weight", "height"]
 
