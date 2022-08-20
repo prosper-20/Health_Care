@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm, ContactForm
-from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach, Service
+from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach, Service, Testimonies
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
@@ -57,8 +57,11 @@ def Home(request):
             return redirect("home")
     else:
         services = Service.objects.all()
+        testimonies = Testimonies.objects.all()
+
         context = {
-            'services': services
+            'services': services,
+            "testimonies": testimonies
         }
         return render(request, 'core/home.html', context)
 
