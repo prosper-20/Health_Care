@@ -151,4 +151,15 @@ class Service(models.Model):
         return self.service_name
 
 
+class Testimonies(models.Model):
+    name = models.CharField(max_length=100)
+    job_position = models.CharField(max_length=100)
+    image = models.ImageField(default="testimonies.jpg", upload_to="testimonials")
+    comment = models.TextField()
+
+
+    def __str__(self):
+        return self.name
+
+
 

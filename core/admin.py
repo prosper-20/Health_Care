@@ -6,7 +6,8 @@ from .models import (
         Personalization,
         Contact,
         Coach,
-        Service
+        Service,
+        Testimonies
 )
 
 # Register your models here.
@@ -53,3 +54,10 @@ class ServiceAdmin(admin.ModelAdmin):
         list_display = ["service_name", "description"]
 
 admin.site.register(Service, ServiceAdmin)
+
+
+class TestimomniesAdmin(admin.ModelAdmin):
+        list_display = ["name", "job_position", "comment"]
+
+
+admin.site.register(Testimonies, TestimomniesAdmin)
