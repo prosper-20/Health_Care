@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm, ContactForm
-from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach, Service, Testimonies, Post
+from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach, Service, Testimonies
+from blog.models import Post
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
