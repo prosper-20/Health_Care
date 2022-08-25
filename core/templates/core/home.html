@@ -464,19 +464,19 @@
         <div class="row ftco-animate">
           <div class="col-md-12">
           	<div class="carousel-stories owl-carousel">
-							{% for success_story in success_stories%}
+							{% for success_story in success_stories %}
 							<div class="item">
 								<div class="row justify-content-center">
 									<div class="col-md-11">
 										<div class="stories-wrap d-md-flex">
-											<div class="img" style="background-image: url(/static/core/images/person-1.jpg);"></div>
+											<div class="img" style="background-image: url({{ success_story.image.url }});"></div>
 											<div class="text p-4 py-xl-5 px-xl-5 d-flex align-items-center">
 												<div class="desc w-100">
 													<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 													<p class="mb-5">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
 													<div class="pt-4">
-														<p class="name mb-0">Joy Smith</p>
-														<span class="position">Client/Manager</span>
+														<p class="name mb-0">{{ success_story.name }}</p>
+														<span class="position">{{ success_story.job }}</span>
 													</div>
 												</div>
 											</div>
