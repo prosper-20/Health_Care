@@ -13,7 +13,8 @@ from .views import (
     about,
     coach, 
     service,
-    pricing
+    pricing,
+    success_stories
 )
 
 urlpatterns = [
@@ -28,6 +29,7 @@ urlpatterns = [
     path("about/", about, name="about"),
     path("coach/", coach, name="coach"),
     path("service", service, name="service"),
-    path("pricing", pricing, name="pricing")
+    path("pricing", pricing, name="pricing"),
+    path("success-stories/", success_stories, name="success-stories")
    
 ]

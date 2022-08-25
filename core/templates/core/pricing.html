@@ -168,9 +168,10 @@
 				<div class="row justify-content-center">
 					<div class="col-10 col-lg-6">
 						<div class="subscribe mb-5">
-							<form action="#" class="subscribe-form">
+							<form  method="post" class="subscribe-form">
+								{% csrf_token %}
                 <div class="form-group d-flex">
-                  <input type="text" class="form-control rounded-left" placeholder="Enter email address">
+                  <input type="email"  name="subscriber_email" maxlength="254" class="form-control rounded-left" placeholder="Enter email address" required id="id_subscriber_email">
                   <input type="submit" value="Subscribe" class="form-control submit px-3">
                 </div>
               </form>

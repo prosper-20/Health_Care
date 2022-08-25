@@ -41,7 +41,7 @@
 		</div>
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	    	<a class="navbar-brand" href="index.html">Health<span>coach<i class="fa fa-leaf"></i></span></a>
+	    	<a class="navbar-brand" href="{% url 'home' %}">Health<span>coach<i class="fa fa-leaf"></i></span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="fa fa-bars"></span> Menu
 	      </button>
@@ -50,9 +50,9 @@
 	        	<li class="nav-item "><a href="{% url 'home' %}" class="nav-link">Home</a></li>
 	        	<li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
 	        	<li class="nav-item"><a href="{% url 'coach' %}" class="nav-link">Coach</a></li>
-	        	<li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+	        	<li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">Pricing</a></li>
 	        	<li class="nav-item active"><a href="{% url 'services' %}" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a href="success-stories.html" class="nav-link">Stories</a></li>
+	          <li class="nav-item"><a href="{% url 'success-stories %%}" class="nav-link">Stories</a></li>
 	          <li class="nav-item"><a href="{% url 'blog-home' %}" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
 	        </ul>
