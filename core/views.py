@@ -256,6 +256,9 @@ def service(request):
 def pricing(request):
     return render(request, "core/pricing.html")
 
+def success_stories(request):
+    return render(request, "core/success_stories.html")
+
 
 
 
