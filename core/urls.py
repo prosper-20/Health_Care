@@ -15,6 +15,7 @@ from .views import (
     service,
     pricing,
     success_stories
+
 )
 
 urlpatterns = [
