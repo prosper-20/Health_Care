@@ -20,6 +20,8 @@ Now, that we have a basic understanding of what Git is, let's dive right into it
 
 Simply login into your Github account and click on the new button to create a new repo. For the same of this article, we are going to create a new repository using only default settings. 
 
+
+
  
 
 ## 2. Change directory into your local Project 

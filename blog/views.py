@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post
 from .forms import CommentForm
 from django.contrib import messages
@@ -30,7 +30,7 @@ def detail(request, slug):
             # Save the comment to the database
             new_comment.save()
             messages.success(request, "Your comment has been saved")
-            return reve
+            return redirect("home")
     else:
         comment_form = CommentForm()
     context = {
