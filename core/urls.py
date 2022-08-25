@@ -1,3 +1,4 @@
+from cgi import print_environ
 from django.urls import path
 from .views import (
     consultation,
@@ -11,7 +12,8 @@ from .views import (
     contact_main,
     about,
     coach, 
-    service
+    service,
+    pricing
 )
 
 urlpatterns = [
@@ -25,6 +27,7 @@ urlpatterns = [
     path("contact/", contact_main, name="contact"),
     path("about/", about, name="about"),
     path("coach/", coach, name="coach"),
-    path("service", service, name="service")
+    path("service", service, name="service"),
+    path("pricing", pricing, name="pricing")
    
 ]

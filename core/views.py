@@ -253,6 +253,10 @@ def service(request):
     return render(request, "core/service.html", context)
 
 
+def pricing(request):
+    return render(request, "core/pricing.html")
+
+
 
 
 
