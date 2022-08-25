@@ -170,6 +170,9 @@ class Success_Stories(models.Model):
     image = models.ImageField(upload_to="success_stories_pictures")
     job = models.CharField(max_length=100)
 
+    class Meta:
+        verbose_name_plural = "Success_Stories"
+
     def __str__(self):
         return self.name
 
