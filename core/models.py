@@ -165,4 +165,13 @@ class Testimonies(models.Model):
         return self.name
 
 
+class Success_Stories(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="success_stories_pictures")
+    job = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 

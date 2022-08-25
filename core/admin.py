@@ -7,7 +7,8 @@ from .models import (
         Contact,
         Coach,
         Service,
-        Testimonies
+        Testimonies,
+        Success_Stories
 )
 
 # Register your models here.
@@ -61,3 +62,11 @@ class TestimomniesAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Testimonies, TestimomniesAdmin)
+
+
+class SuccessStoriesAdmin(admin.ModelAdmin):
+        list_display = ["name", "job"]
+
+
+
+admin.site.register(Success_Stories, SuccessStoriesAdmin)
