@@ -148,6 +148,9 @@ class Service(models.Model):
     description = models.TextField()
     slug = models.SlugField(default="Service")
 
+    def get_absolute_url(self):
+        return reverse("service-detail", args=[str(self.slug)])
+
     def __str__(self):
         return self.service_name
 
