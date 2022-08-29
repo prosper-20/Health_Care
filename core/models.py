@@ -146,6 +146,7 @@ class Service(models.Model):
     service_name = models.CharField(max_length=100)
     image = models.ImageField(default="service.jpg", upload_to='service_pictures')
     description = models.TextField()
+    slug = models.SlugField(default="Service")
 
     def __str__(self):
         return self.service_name

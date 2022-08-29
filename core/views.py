@@ -252,6 +252,9 @@ def service(request):
     }
     return render(request, "core/service.html", context)
 
+# def service_detail(request, slug):
+
+
 
 def pricing(request):
     return render(request, "core/pricing.html")
