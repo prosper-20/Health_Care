@@ -253,7 +253,7 @@ def service(request):
     return render(request, "core/service.html", context)
 
 def service_detail(request, slug):
-    service = Service.objects.filter(slug=slug)
+    service = Service.objects.get(slug=slug)
     context = {
         "service": service
     }
