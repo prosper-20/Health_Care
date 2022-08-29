@@ -84,7 +84,7 @@
               <div class="media-body p-2 mt-3">
                 <h3 class="heading">{{ service.service_name }}</h3>
                 <p>{{ service.description }}</p>
-                <p><a href="#" class="btn btn-primary btn-outline-primary">Read more</a></p>
+                <p><a href="{% service.get_absolute_url %}" class="btn btn-primary btn-outline-primary">Read more</a></p>
               </div>
             </div>    
           </div>
