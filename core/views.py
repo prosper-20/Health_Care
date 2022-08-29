@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm, ContactForm
 from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach, Service, Testimonies, Success_Stories
 from blog.models import Post
@@ -253,7 +253,7 @@ def service(request):
     return render(request, "core/service.html", context)
 
 def service_detail(request, slug):
-    service = Service.objects.get(slug=slug)
+    service = get_object_or_404(Service, slug=slug)
     context = {
         "service": service
     }
