@@ -14,7 +14,8 @@ from .views import (
     coach, 
     service,
     pricing,
-    success_stories
+    success_stories,
+    service_detail
 
 )
 
@@ -30,6 +31,7 @@ urlpatterns = [
     path("about/", about, name="about"),
     path("coach/", coach, name="coach"),
     path("service", service, name="service"),
+    path("service", service_detail, name="servcie-detail"),
     path("pricing", pricing, name="pricing"),
     path("success-stories/", success_stories, name="success-stories")
    

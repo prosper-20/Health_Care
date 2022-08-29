@@ -252,7 +252,12 @@ def service(request):
     }
     return render(request, "core/service.html", context)
 
-# def service_detail(request, slug):
+def service_detail(request, slug):
+    service = Service.objects.filter(slug=slug)
+    context = {
+        "service": service
+    }
+    return render(request, "core/services-single.html", context)
 
 
 
