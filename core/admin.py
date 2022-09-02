@@ -8,7 +8,8 @@ from .models import (
         Coach,
         Service,
         Testimonies,
-        Success_Stories
+        Success_Stories,
+        Classes
 )
 
 # Register your models here.
@@ -70,3 +71,6 @@ class SuccessStoriesAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Success_Stories, SuccessStoriesAdmin)
+
+
+admin.site.register(Classes)

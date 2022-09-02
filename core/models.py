@@ -183,3 +183,15 @@ class Success_Stories(models.Model):
 
 
 
+class Classes(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    image = models.ImageField(upload_to="class_pictures")
+
+
+    def __str__(self):
+        return self.title
+
+
+
+
