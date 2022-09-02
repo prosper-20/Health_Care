@@ -268,6 +268,10 @@ def success_stories(request):
     return render(request, "core/success_stories.html")
 
 
+def gym(request):
+    return render(request, "core/gym.html")
+
+
 
 
 

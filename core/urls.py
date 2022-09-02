@@ -15,7 +15,8 @@ from .views import (
     service,
     pricing,
     success_stories,
-    service_detail
+    service_detail,
+    gym
 
 )
 
@@ -33,6 +34,7 @@ urlpatterns = [
     path("service", service, name="service"),
     path("service/<slug:slug>/", service_detail, name="service-detail"),
     path("pricing", pricing, name="pricing"),
-    path("success-stories/", success_stories, name="success-stories")
+    path("success-stories/", success_stories, name="success-stories"),
+    path("gym/", gym, name="gym")
    
 ]
