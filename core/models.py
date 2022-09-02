@@ -188,6 +188,8 @@ class Classes(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to="class_pictures")
 
+    class Meta:
+        verbose_name_plural = "Classes"
 
     def __str__(self):
         return self.title
