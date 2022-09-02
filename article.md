@@ -1,8 +1,8 @@
-# How to integrate Twilio Sendgrid into Django Application
-
+# How to integrate Twilio Sendgrid into your Django Application
+ 
 Hey guys, 
 
-Today, i'm going to be teaching you how to integrate Twilio Sendgrid in your Django Application using minimal effort. For those who aren't aware what Twilio Sendgirdis, here's a brief Introduction. Sendgrid is simply a customer communication platform for transactional and marketing email. If that definition didn't ring a bell, do not be alarmed, the use case will shed some light.
+Today, i'm going to be teaching you how to integrate Twilio Sendgrid in your Django Application using minimal effort. For those who aren't aware what Twilio Sendgird is, here's a brief Introduction. Sendgrid is simply a customer communication platform for transactional and marketing email. If that definition didn't ring a bell, do not be alarmed, the use case will shed some light.
 
 ### Table of Content
 - Introduction 
@@ -18,10 +18,13 @@ Today, i'm going to be teaching you how to integrate Twilio Sendgrid in your Dja
 
 ## Use Case
 Have you ever wondered how welcome mails are sent whenver you sign up on a platform? How is the process automated? How does the platform know the user to send the mail to? This is where Sendgrid comes in.
-SendGrid is based on acloud-based SMTP provider that allows you to send emails without having to maintain email servers. SendGrid manages all of the technical details, from scaling the infrastructure to ISP outreach and reputation monitoring to whitelist services and real time analytics.
+SendGrid is cloud-based SMTP provider that allows you to send emails without having to maintain email servers. SendGrid manages all of the technical details, from scaling the infrastructure to ISP outreach and reputation monitoring to whitelist services and real time analytics.
 
 ## Benefits of using Sendgrid
-The main benefits of SendGrid are its deliverability, its scalability, and its reliability. Read on to know more of its benefits.
+The main benefits of SendGrid are its 
+1. deliverability
+2. Scalability,
+3. reliability. Read on to know more of its benefits.
 
 
 For simplicity, i'm going to be building a User Registration Web Application using Django.
@@ -50,6 +53,8 @@ Lasttly, we're going to create our `users` application. To do this, run the foll
 > `python manage.py startapp users`
 
 We need to register our `users` application in the main project folder. To do this, simply head on to the your `PROJECT/settings.py`. 
+
+![alt text](/Screenshot%20(46).jpg)
 
 To verify if our setup was successful, run `python manage.py runserver`. If you get an output similar to this, Congratulations on making this far.
 
@@ -216,6 +221,25 @@ Go into your `users/view.py` file and input the folloeing code:
 
     def home(request):
         return render(request, "users/home.html")
+
+The `index.html` file is the template that's automatically sent to the user upon registration.
+
+
+## Step 5: Setting up Sendgrid In your Project
+To make use of sendgrid, it is necessary to install it in our virtual environment. Run the code below in your terminal.
+
+>`pip install sendgrid-django` 
+
+
+
+## Step 6: Testing our code
+At this point, it is safe to say we have configured our application accordingly. Now, we have to register a new user with a valid email address.
+NOTE: Ensure the email entered is a valid one.
+
+## Step 7: Conclusion
+Now that we have a basic idea of how sendgrid, feel free to explore some of its other really amazing featues.
+
+Thank you for reading!
 
 
 
