@@ -189,107 +189,21 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-6">
+           {% for class in classes %}
             <div class="class-item d-flex align-items-center">
               <a href="single.html" class="class-item-thumbnail">
-                <img src="images/img_1.jpg" alt="Image">
+                <img src="{{ class.image.url }}" alt="Image">
               </a>
               <div class="class-item-text">
                 
-                <h2><a href="single.html">Fitness Class Name #1</a></h2>
+                <h2><a href="single.html">{{ class.title }}</a></h2>
                 <span>By Justin Daniel</span>,
                 <span>30 minutes</span>
               </div>
             </div>
-
-            <div class="class-item d-flex align-items-center">
-              <a href="single.html" class="class-item-thumbnail">
-                <img src="images/img_2.jpg" alt="Image">
-              </a>
-              <div class="class-item-text">
-                
-                <h2><a href="single.html">Fitness Class Name #2</a></h2>
-                <span>By Justin Daniel</span>,
-                <span>30 minutes</span>
-              </div>
-            </div>
-
-            <div class="class-item d-flex align-items-center">
-              <a href="single.html" class="class-item-thumbnail">
-                <img src="images/img_3.jpg" alt="Image">
-              </a>
-              <div class="class-item-text">
-                
-                <h2><a href="single.html">Fitness Class Name #3</a></h2>
-                <span>By Justin Daniel</span>,
-                <span>30 minutes</span>
-              </div>
-            </div>
+            {% endfor %}
             
-            <div class="class-item d-flex align-items-center">
-              <a href="single.html" class="class-item-thumbnail">
-                <img src="images/img_4.jpg" alt="Image">
-              </a>
-              <div class="class-item-text">
-                
-                <h2><a href="single.html">Fitness Class Name #4</a></h2>
-                <span>By Justin Daniel</span>,
-                <span>30 minutes</span>
-              </div>
-            </div>
-
-            <div class="class-item d-flex align-items-center">
-              <a href="single.html" class="class-item-thumbnail">
-                <img src="images/img_1.jpg" alt="Image">
-              </a>
-              <div class="class-item-text">
-                
-                <h2><a href="single.html">Fitness Class Name #5</a></h2>
-                <span>By Justin Daniel</span>,
-                <span>30 minutes</span>
-              </div>
-            </div>
-            
-           
-          </div>
-          <div class="col-lg-6">
-            <div class="class-item d-flex align-items-center">
-              <a href="single.html" class="class-item-thumbnail">
-                <img src="images/img_1.jpg" alt="Image">
-              </a>
-              <div class="class-item-text">
-                
-                <h2><a href="single.html">Fitness Class Name #1</a></h2>
-                <span>By Justin Daniel</span>,
-                <span>30 minutes</span>
-              </div>
-            </div>
-            
-            <div class="class-item d-flex align-items-center">
-              <a href="single.html" class="class-item-thumbnail">
-                <img src="images/img_2.jpg" alt="Image">
-              </a>
-              <div class="class-item-text">
-                
-                <h2><a href="single.html">Fitness Class Name #2</a></h2>
-                <span>By Justin Daniel</span>,
-                <span>30 minutes</span>
-              </div>
-            </div>
-            
-            <div class="class-item d-flex align-items-center">
-              <a href="single.html" class="class-item-thumbnail">
-                <img src="images/img_3.jpg" alt="Image">
-              </a>
-              <div class="class-item-text">
-                
-                <h2><a href="single.html">Fitness Class Name #3</a></h2>
-                <span>By Justin Daniel</span>,
-                <span>30 minutes</span>
-              </div>
-            </div>
-            
-            <div class="class-item d-flex align-items-center">
+            <!-- <div class="class-item d-flex align-items-center">
               <a href="single.html" class="class-item-thumbnail">
                 <img src="images/img_4.jpg" alt="Image">
               </a>
@@ -311,7 +225,7 @@
                 <span>By Justin Daniel</span>,
                 <span>30 minutes</span>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

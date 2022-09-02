@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ConsultationForm, SubscriptionForm, BMIForm, RoutineForm, ContactForm
-from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach, Service, Testimonies, Success_Stories
+from .models import Consultation, Personalization, Subscription, BMI, Question, Contact, Coach, Service, Testimonies, Success_Stories, Classes
 from blog.models import Post
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -269,7 +269,8 @@ def success_stories(request):
 
 
 def gym(request):
-    return render(request, "core/gym.html")
+    classes = Classes.objects.all()
+    return render(request, "core/gym.html", {"classes": classes})
 
 
 
