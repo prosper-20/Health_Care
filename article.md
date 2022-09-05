@@ -61,15 +61,18 @@ We need to register our `users` application in the main project folder. Head on 
 
 ![alt text](https://prosper-django-bucket.s3.us-east-2.amazonaws.com/Screenshot+(46).jpg)
 
-To verify if our setup was successful, run `python manage.py runserver`. If you get an output similar to this,
-(![alt text](https://prosper-django-bucket.s3.us-east-2.amazonaws.com/Screenshot+(48).jpg) 
-Congratulations on making it this far.
+To verify if our setup was successful, run `python manage.py runserver`.
+![alt text](https://prosper-django-bucket.s3.us-east-2.amazonaws.com/Screenshot+(48).jpg)  If you got an output similar to the image above, 
+congratulations on making it this far.
 
-Next, run `python manage.py migrate`, then run `python manage.py createsuperuser`.
+Next, run the following commands: 
+> `python manage.py migrate` 
+> 
+> `python manage.py createsuperuser` 
 
 
 
-## Step 3: Creating HTML Templates
+## Step 3: Creating HTML Templates and Static Files
 This project requires just three HTML files: `home.html`, `register.html`, and `base.html`. Open your IDE, and create a folder named `templates` in the app directory. Next, create another folder named `users` inside the newly created `templates` folder. Doing this enables django to locate the `HTML` Templates.
 Your folder structure should be like this:
 
@@ -77,8 +80,7 @@ Your folder structure should be like this:
 
 
 
-Run `pip install django-crispy-forms` and add to the `INSTALLED_APPS` `crispy_forms`. Your `INSTALLED_APP` should look like this now.
-(![alt text](https://prosper-django-bucket.s3.us-east-2.amazonaws.com/Screenshot+(50).png) 
+
 
 Copy and paste the following code accordingly:
 
@@ -207,7 +209,13 @@ Copy and paste the following code accordingly:
       </body>
       </html>
 
-## Step : Setting up the static files
+  Run `pip install django-crispy-forms` and add to the `INSTALLED_APPS` `crispy_forms`. Your `INSTALLED_APP` should look like this now.
+![alt text](https://prosper-django-bucket.s3.us-east-2.amazonaws.com/Screenshot+(50).png) 
+
+  Navigate to the last line of the project's `settings.py` and input this line of code:
+  > `CRISPY_TEMPLATE_PACK = "bootstrap4"`
+
+## Setting up the static files
 Similar to the way we created our HTML files, create a folder named `static` in the `users` app. Create another folder called `users` inside the just created `static` folder. Lastly, create a file named `main.css` and paste the following code.
 
 Your setup should be similar to this
@@ -216,91 +224,92 @@ Your setup should be similar to this
 
 Copy and paste the following code into the `main.css` file
 
-
-           body {
-              background: #fafafa;
-              color: #333333;
-              margin-top: 5rem;
-            }
-            
-            h1, h2, h3, h4, h5, h6 {
-              color: #444444;
-            }
-            
-            ul {
-              margin: 0;
-            }
-            
-            .bg-steel {
-              background-color: #5f788a;
-            }
-            
-            .site-header .navbar-nav .nav-link {
-              color: #cbd5db;
-            }
-            
-            .site-header .navbar-nav .nav-link:hover {
-              color: #ffffff;
-            }
-            
-            .site-header .navbar-nav .nav-link.active {
-              font-weight: 500;
-            }
-            
-            .content-section {
-              background: #ffffff;
-              padding: 10px 20px;
-              border: 1px solid #dddddd;
-              border-radius: 3px;
-              margin-bottom: 20px;
-            }
-            
-            .article-title {
-              color: #444444;
-            }
-            
-            a.article-title:hover {
-              color: #428bca;
-              text-decoration: none;
-            }
-            
-            .article-content {
-              white-space: pre-line;
-            }
-            
-            .article-img {
-              height: 65px;
-              width: 65px;
-              margin-right: 16px;
-            }
-            
-            .article-metadata {
-              padding-bottom: 1px;
-              margin-bottom: 4px;
-              border-bottom: 1px solid #e3e3e3
-            }
-            
-            .article-metadata a:hover {
-              color: #333;
-              text-decoration: none;
-            }
-            
-            .article-svg {
-              width: 25px;
-              height: 25px;
-              vertical-align: middle;
-            }
-            
-            .account-img {
-              height: 125px;
-              width: 125px;
-              margin-right: 20px;
-              margin-bottom: 16px;
-            }
-            
-            .account-heading {
-              font-size: 2.5rem;
-            }
+  `main.css`
+  
+    body {
+      background: #fafafa;
+      color: #333333;
+      margin-top: 5rem;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: #444444;
+    }
+    
+    ul {
+      margin: 0;
+    }
+    
+    .bg-steel {
+      background-color: #5f788a;
+    }
+    
+    .site-header .navbar-nav .nav-link {
+      color: #cbd5db;
+    }
+    
+    .site-header .navbar-nav .nav-link:hover {
+      color: #ffffff;
+    }
+    
+    .site-header .navbar-nav .nav-link.active {
+      font-weight: 500;
+    }
+    
+    .content-section {
+      background: #ffffff;
+      padding: 10px 20px;
+      border: 1px solid #dddddd;
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
+    
+    .article-title {
+      color: #444444;
+    }
+    
+    a.article-title:hover {
+      color: #428bca;
+      text-decoration: none;
+    }
+    
+    .article-content {
+      white-space: pre-line;
+    }
+    
+    .article-img {
+      height: 65px;
+      width: 65px;
+      margin-right: 16px;
+    }
+    
+    .article-metadata {
+      padding-bottom: 1px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid #e3e3e3
+    }
+    
+    .article-metadata a:hover {
+      color: #333;
+      text-decoration: none;
+    }
+    
+    .article-svg {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+    }
+    
+    .account-img {
+      height: 125px;
+      width: 125px;
+      margin-right: 20px;
+      margin-bottom: 16px;
+    }
+    
+    .account-heading {
+      font-size: 2.5rem;
+    }
 
 Create a `forms.py` in the `users` app and paste the following code:
 
