@@ -427,6 +427,8 @@ To configure Django to send emails through SendGrid, add the following variables
 At this point, it is safe to say we have configured our application accordingly. Now, we have to register a new user with a valid email address.
 Run `python manage.py runserver` in your terminal. Open your browser and click on the register link on the right hand side of the navbar.
 
+![alt text](https://prosper-django-bucket.s3.us-east-2.amazonaws.com/Screenshot+(66).jpg) 
+
 ** NOTE: Ensure the email entered is a valid one, so as to receive the signup welcome email**
 
 ## Step 7: Conclusion
