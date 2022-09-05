@@ -25,8 +25,8 @@ The main benefits of SendGrid are its:
 5. Creating a Django Application
 6. Creating HTML Templates
 7. Setting Up User Registration
-8. Testing
-9. Conclusion 
+8. Setting up the URLs
+9. Integrating Sendgrid
 10. Additional Resources
 
 
@@ -215,6 +215,8 @@ Copy and paste the following code accordingly:
   Navigate to the last line of the project's `settings.py` and input this line of code:
   > `CRISPY_TEMPLATE_PACK = "bootstrap4"`
 
+  ![alt text](https://prosper-django-bucket.s3.us-east-2.amazonaws.com/Screenshot+(61).jpg)
+
 ## Setting up the static files
 Similar to the way we created our HTML files, create a folder named `static` in the `users` app. Create another folder called `users` inside the just created `static` folder. Lastly, create a file named `main.css` and paste the following code.
 
@@ -225,7 +227,7 @@ Your setup should be similar to this
 Copy and paste the following code into the `main.css` file
 
   `main.css`
-  
+
     body {
       background: #fafafa;
       color: #333333;
@@ -359,7 +361,8 @@ Go into your `users/view.py` file and input the following code:
                 email_from = settings.EMAIL_HOST_USER
                 recipient_list = [email]
                 message = EmailMessage(subject, html_message,
-                                       email_from, recipient_list)
+                email_from, 
+                recipient_list)
                 message.content_subtype = 'html'
                 message.send()
                 messages.success(request, f"Hi {username}, your account has been created successfully!")
@@ -374,6 +377,7 @@ Go into your `users/view.py` file and input the following code:
     
     def home(request):
         return render(request, "users/home.html")
+
 The `index.html` file is the Html template that's automatically sent to the user upon registration.
 
 ## Step : Setting up the PROJECT'S URLS.py
@@ -382,18 +386,16 @@ In the main project's urls file, add the following code:
 
 In the `users` app, create a `urls.py` file and insert the following code:
 
-       from django.urls import path
-        from .views import register, home
+    from django.urls import path
+    from .views import register, home
+    
+    urlpatterns = [
+        path("", home, name="register"),
+        path("register/", register, name="home"),
         
-        urlpatterns = [
-            path("", home, name="register"),
-            path("register/", register, name="home"),
-            
-        ]
+    ]
 
-## Step *: In the `settings.py` file. Copy and paste the following code:
 
-![alt text](https://prosper-django-bucket.s3.us-east-2.amazonaws.com/Screenshot+(61).jpg)
 
 ## Step 5: Setting up Sendgrid In your Project
 To make use of SendGrid, it is necessary to install it in our virtual environment. Run the code below in your terminal.
