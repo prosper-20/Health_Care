@@ -382,6 +382,8 @@ The `index.html` file is the Html template that's automatically sent to the user
 
 ## Step : Setting up the PROJECT'S URLS.py
 In the main project's urls file, add the following code:
+> `path("", include("users.urls"))`
+> 
 ![alt text](https://prosper-django-bucket.s3.us-east-2.amazonaws.com/Screenshot+(59).png) 
 
 In the `users` app, create a `urls.py` file and insert the following code:
@@ -398,12 +400,27 @@ In the `users` app, create a `urls.py` file and insert the following code:
 
 
 ## Step 5: Setting up Sendgrid In your Project
+To carry out this setup, you must have a valid sendgrid account. If you do not have one, kindly click, [Sendgrid Signup](https://signup.sendgrid.com/).
+
+If you have one, log into your sendgrid account [Sendgrid Signin](https://app.sendgrid.com/login?redirect_to=%2F).
 To make use of SendGrid, it is necessary to install it in our virtual environment. Run the code below in your terminal.
 
 >`pip install sendgrid-django` 
 
-Copy and paste the following code in your Project's `settings.py` file
+To configure Django to send emails through SendGrid, add the following variables at the bottom of your settings.py file. In this project, this file is our `PROJECT/settings.py` file, but your location will be different if you used a different name for your Django application.
 
+
+> 
+>EMAIL_HOST = 'smtp.sendgrid.net'
+>
+>EMAIL_PORT = 587
+>
+>EMAIL_USE_TLS = True
+>
+>EMAIL_HOST_USER = 'apikey'
+>
+>EMAIL_HOST_PASSWORD = os.environ.get
+('SENDGRID_API_KEY')
 
 
 ## Step 6: Testing our code
